@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'tiny_menutab';
-$plugin->release = '0.1.0';
-$plugin->version = 2025041403;
+$plugin->release = '1.0.0';
+$plugin->version = 2025041500;
 $plugin->requires = 2022041900;
-$plugin->maturity = MATURITY_ALPHA;
+$plugin->maturity = MATURITY_STABLE;
