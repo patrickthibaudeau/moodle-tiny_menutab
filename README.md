@@ -12,11 +12,13 @@ normal h2 tag, making it appear as a normal header.
 ## Using the plugin ##
 Important: DO NOT USE SUB SECTIONS.
 1. Create a resource using the Text & media area.
-2. Type the label you want displayed in the editor.
+2. Type the label you want displayed.
 3. Select the text you want to convert to a tab.
 4. Click the Menu/Tab button (Add tab) in the TinyMCE editor.
 5. To have activities show within the tab, add them immediately after the tab.
 6. Add as many "tabs" as you want. Make sure to move the activities related to the tab below each label.
+7. If the text is already formatted as a header, select the text and click the Menu/Tab button (Add tab) in the TinyMCE editor.
+That will remove the h2 tags.
 
 ## Installing via uploaded ZIP file ##
 

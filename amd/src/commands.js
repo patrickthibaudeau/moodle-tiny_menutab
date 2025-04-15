@@ -10,14 +10,29 @@ import {
  * Handle the action for your plugin.
  * @param {TinyMCE.editor} editor The tinyMCE editor instance.
  */
+
 const addTab = (editor) => {
-    // TODO: This would change the case of the html tags as well.
-    // But the TinyMCE editor should correct that automatically.
-    let selectedText = editor.selection.getContent();
+    // Get the selected range.
+    const range = editor.selection.getRng();
+    const container = range.commonAncestorContainer;
 
-    // Add <h2> tags around the selected text.
-    editor.selection.setContent(`<h2>${selectedText}</h2>`);
+    // Check if the selection is within a text node.
+    if (container.nodeType === Node.TEXT_NODE) {
+        const parent = container.parentNode;
 
+        // Check if the parent is an <h2> tag.
+        if (parent && parent.nodeName === 'H2') {
+            // Replace the <h2> tag with its inner text.
+            const textNode = document.createTextNode(parent.textContent);
+            parent.replaceWith(textNode);
+        } else {
+            // Wrap the selected text in an <h2> tag.
+            const h2 = document.createElement('h2');
+            h2.textContent = range.toString();
+            range.deleteContents();
+            range.insertNode(h2);
+        }
+    }
 };
 
 /**
