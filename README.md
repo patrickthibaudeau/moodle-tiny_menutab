@@ -1,8 +1,22 @@
 # Menu/Tab #
 
-TODO Describe the plugin shortly here.
+This plugin is a TinyMCE plugin for Moodle that allows you to create tabs for 
+use with the Menu/Tab course format.
 
-TODO Provide more detailed description here.
+This button adds a button in the TInyMCE editor that adds an h2 tag to the selected
+text wintin the editor. The h2 tags are not use wintin the editor in Moodle and 
+therefore, when used with the Menu/Tab course format, the text will be converted as a tab.
+If you change the course format to anyother format, the text will be converted to a 
+normal h2 tag, making it appear as a normal header.
+
+## Using the plugin ##
+Important: DO NOT USE SUB SECTIONS.
+1. Create a resource using the Text & media area.
+2. Type the label you want displayed in the editor.
+3. Select the text you want to convert to a tab.
+4. Click the Menu/Tab button (Add tab) in the TinyMCE editor.
+5. To have activities show within the tab, add them immediately after the tab.
+6. Add as many "tabs" as you want. Make sure to move the activities related to the tab below each label.
 
 ## Installing via uploaded ZIP file ##
 
