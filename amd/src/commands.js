@@ -62,5 +62,11 @@ export const getSetup = async() => {
             tooltip: buttonImageText,
             onAction: () => addTab(editor),
         });
+
+        editor.ui.registry.addMenuItem('menutab_menuitem', {
+            icon: icon,
+            text:buttonImageText,
+            onAction: () => addTab(editor),
+        });
     };
 };
