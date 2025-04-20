@@ -50,10 +50,14 @@ class plugininfo extends plugin implements plugin_with_configuration, plugin_wit
         array $fpoptions,
         ?\editor_tiny\editor $editor = null
     ): array {
+        global $DB;
+        // Get course context
+        $course_context = $context->get_course_context();
+        // Get course format being used
+        $course_format = $DB->get_field('course', 'format', ['id' => $course_context->instanceid]);
         return [
-            // Your values go here.
-            // These will be mapped to a namespaced EditorOption in Tiny.
-            'myFirstProperty' => 'TODO Calculate your values here',
+            // Return the course format being used
+            'courseFormat' => $course_format,
         ];
     }
 }

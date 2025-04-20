@@ -1,5 +1,6 @@
 import {getButtonImage} from 'editor_tiny/utils';
 import {get_string as getString} from 'core/str';
+import {getCourseFormat} from './options';
 import {
     component,
     buttonName,
@@ -53,20 +54,25 @@ export const getSetup = async() => {
     ]);
 
     return (editor) => {
-        // Register the Moodle SVG as an icon suitable for use as a TinyMCE toolbar button.
-        editor.ui.registry.addIcon(icon, buttonImage.html);
+        // Get the course format option.
+        const courseFormat = getCourseFormat(editor);
+        // If the course format is menutab, register the button.
+        if (courseFormat === 'menutab') {
+            // Register the Moodle SVG as an icon suitable for use as a TinyMCE toolbar button.
+            editor.ui.registry.addIcon(icon, buttonImage.html);
 
-        // Register the lowercase Toolbar Button.
-        editor.ui.registry.addButton(buttonName, {
-            icon: icon,
-            tooltip: buttonImageText,
-            onAction: () => addTab(editor),
-        });
+            // Register the lowercase Toolbar Button.
+            editor.ui.registry.addButton(buttonName, {
+                icon: icon,
+                tooltip: buttonImageText,
+                onAction: () => addTab(editor),
+            });
 
-        editor.ui.registry.addMenuItem('menutab_menuitem', {
-            icon: icon,
-            text:buttonImageText,
-            onAction: () => addTab(editor),
-        });
+            editor.ui.registry.addMenuItem('menutab_menuitem', {
+                icon: icon,
+                text: buttonImageText,
+                onAction: () => addTab(editor),
+            });
+        }
     };
 };
